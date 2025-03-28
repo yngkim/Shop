@@ -1,0 +1,45 @@
+.nav {
+  margin-left: 20px;
+}
+
+.main-bg {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("./bg.png");
+}
+
+.merch {
+  text-align: center;
+}
+.moreBtn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 20px;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tab2 {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.tab {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.start {
+  opacity: 0;
+}
+
+.end {
+  opacity: 1;
+  transition: all 1s;
+}
