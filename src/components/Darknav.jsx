@@ -12,9 +12,9 @@ function Darknav() {
           <Nav.Link href="/detail">Detail</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
           <Nav.Link href="/cart">Cart</Nav.Link>
-          <Nav className="ms-auto">
-            {result.isLoding ? "로딩중" : result.data.name}
-          </Nav>
+          <Navbar.Text className="justify-content-end">
+            Signed in as: <a href="#login">Mark Otto</a>
+          </Navbar.Text>
         </Nav>
       </Container>
     </Navbar>

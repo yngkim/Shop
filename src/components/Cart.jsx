@@ -1,6 +1,18 @@
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { addOne, subtractOne, agePlusOne, deleteCart } from "./store.js";
+import { memo, useState } from "react";
+
+//Child = memo(function(){....}) => Child의 props가 변경될 때만 재랜더링
+//없으면 밑에 state 변수인 count 변경될때마다 재랜더링됨
+//근데 기존 props와 현재 Props를 비교하는 작업이 추가되기 떄문에 남발 ㄴㄴ
+//state 변경할때마다 재랜더링하기 무거운 컴포넌트에만 적용
+
+//비슷한 useMemo는 컴포넌트 랜더링 시 1회만 실행해줌
+let Child = memo(function () {
+  console.log("재랜더링됨");
+  return <div>Child</div>;
+});
 
 function Cart() {
   let state = useSelector((state) => {
@@ -8,9 +20,19 @@ function Cart() {
   });
   console.log(state.userCart);
   let dispatch = useDispatch();
+  let [count, setCount] = useState(0);
 
   return (
     <div>
+      <Child></Child>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        +
+      </button>
+
       <button
         onClick={(state) => {
           dispatch(agePlusOne());

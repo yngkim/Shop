@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 
 import "./App.css";
 import data from "./data.js";
@@ -6,6 +6,10 @@ import axios from "axios";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 import {
   BrowserRouter as Router,
@@ -16,10 +20,15 @@ import {
   Outlet,
 } from "react-router-dom";
 import Card from "./components/Card";
-import Detail from "./components/Detail";
+// import Detail from "./components/Detail";
 // import Darknav from "./components/Darknav.jsx";
-import Cart from "./components/Cart.jsx";
+// import Cart from "./components/Cart.jsx";
+
+const Detail = lazy(() => import("./components/Detail.jsx"));
+const Cart = lazy(() => import("./components/Cart.jsx"));
+
 import { useQuery } from "react-query";
+import { useServerName } from "./hooks/name.js";
 
 function App() {
   useEffect(() => {
@@ -36,17 +45,11 @@ function App() {
   let [isMore, setIsMore] = useState(true);
   let [isLoading, setIsLoading] = useState(false);
 
-  useQuery("username", () => {
-    return axios
-      .get("https://codingapple1.github.io/userdata.json")
-      .then((a) => {
-        return a.data;
-      });
-  });
+  let serverName = useServerName();
 
   return (
     <>
-      <Darknav />
+      <Darknav serverName={serverName} />
       <Router>
         <Routes>
           <Route
@@ -136,7 +139,7 @@ function About() {
   );
 }
 
-function Darknav() {
+function Darknav(props) {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container className="nav">
@@ -146,10 +149,12 @@ function Darknav() {
           <Nav.Link href="/detail">Detail</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
           <Nav.Link href="/cart">Cart</Nav.Link>
-          <Nav className="ms-auto">
-            {result.isLoding ? "로딩중" : result.data.name}
-          </Nav>
         </Nav>
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            Signed in as: <a href="#login">{props.serverName}</a>
+          </Navbar.Text>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
