@@ -31,7 +31,7 @@ let userCart = createSlice({
   initialState: [
     { id: 0, name: "White and Black", count: 2 },
     { id: 1, name: "Grey Yordan", count: 1 },
-    { id: 2, name: "your mom", count: 1 },
+    { id: 2, name: "born in france", count: 1 },
   ],
   reducers: {
     addOne(state, action) {
