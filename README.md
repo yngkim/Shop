@@ -1,12 +1,39 @@
-# React + Vite
+# Shop Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce web application built with React, Redux Toolkit, and React Query.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Frontend library for building user interfaces
+- **Redux Toolkit**: State management library
+- **React Query**: Data fetching and caching library
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Product listing and details
+- Shopping cart functionality
+- State management with Redux
+- Data fetching with React Query
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Project Structure
+
+- `src/components/`: React components
+- `src/store/`: Redux store configuration
+- `src/hooks/`: Custom React hooks
+- `src/pages/`: Page components
+
+## License
+
+This project is licensed under the MIT License.
