@@ -1,6 +1,8 @@
 # Shop Project
 
 A modern e-commerce web application built with React, Redux Toolkit, and React Query.
+<img width="1501" alt="image" src="https://github.com/user-attachments/assets/3eb231d6-99e7-41da-bd32-6defe169241b" />
+
 
 ## Tech Stack
 
